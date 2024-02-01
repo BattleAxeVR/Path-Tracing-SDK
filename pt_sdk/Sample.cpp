@@ -972,7 +972,7 @@ HitGroupInfo ComputeSubInstanceHitGroupInfo(const donut::engine::Material& mater
 
 bool Sample::CreatePTPipeline(engine::ShaderFactory& shaderFactory)
 {
-    bool SERSupported = GetDevice()->getGraphicsAPI() == nvrhi::GraphicsAPI::D3D12 && GetDevice()->queryFeatureSupport(nvrhi::Feature::ShaderExecutionReordering);
+    bool SERSupported = GetDevice()->queryFeatureSupport(nvrhi::Feature::ShaderExecutionReordering);
 
     assert( m_SubInstanceCount > 0 );
     std::vector<HitGroupInfo> perSubInstanceHitGroup;
@@ -2747,8 +2747,7 @@ int main(int __argc, const char** __argv)
         return 4;
     }
 
-    bool SERSupported = deviceManager->GetDevice()->getGraphicsAPI() == nvrhi::GraphicsAPI::D3D12 && deviceManager->GetDevice()->queryFeatureSupport(nvrhi::Feature::ShaderExecutionReordering);
-    
+    bool SERSupported = deviceManager->GetDevice()->queryFeatureSupport(nvrhi::Feature::ShaderExecutionReordering);
     bool ommSupported = deviceManager->GetDevice()->queryFeatureSupport(nvrhi::Feature::RayTracingOpacityMicromap);
 
     {
