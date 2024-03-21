@@ -45,7 +45,7 @@ using namespace donut::render;
 
 static const int c_SwapchainCount = 3;
 
-static const char* g_WindowTitle = "Path Tracing SDK v1.3.0";
+static const char* g_WindowTitle = "RTX Path Tracing v1.3.0";
 
 const float c_EnvMapRadianceScale = 1.0f / 4.0f; // used to make input 32bit float radiance fit into 16bit float range that baker supports; going lower than 1/4 causes issues with current BC6U compression algorithm when used
 
@@ -117,7 +117,7 @@ Sample::Sample( donut::app::DeviceManager * deviceManager, CommandLineOptions& c
     deviceManager->SetFrameTimeUpdateInterval(1.0f);
 
     std::filesystem::path frameworkShaderPath = app::GetDirectoryWithExecutable( ) / "shaders/framework" / app::GetShaderTypeName( GetDevice( )->getGraphicsAPI( ) );
-    std::filesystem::path appShaderPath = app::GetDirectoryWithExecutable() / "shaders/pt_sdk" / app::GetShaderTypeName(GetDevice()->getGraphicsAPI());
+    std::filesystem::path appShaderPath = app::GetDirectoryWithExecutable() / "shaders/RTXPT" / app::GetShaderTypeName(GetDevice()->getGraphicsAPI());
     std::filesystem::path nrdShaderPath = app::GetDirectoryWithExecutable() / "shaders/nrd" / app::GetShaderTypeName(GetDevice()->getGraphicsAPI());
     std::filesystem::path ommShaderPath = app::GetDirectoryWithExecutable( ) / "shaders/omm" / app::GetShaderTypeName( GetDevice( )->getGraphicsAPI( ) );
 

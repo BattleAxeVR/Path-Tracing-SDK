@@ -20,13 +20,13 @@ bool CommandLineOptions::InitFromCommandLine(int _argc, char** _argv)
 	try
 	{
 		std::filesystem::path exe_path = _argv[0];
-		Options options(exe_path.filename().string(), "Path Tracing SDK is a code sample that strives to embody years of ray tracing and neural graphics research and experience. It is intended as a starting point for a path tracer integration, as a reference for various integrated SDKs, and/or for learning and experimentation.");
+		Options options(exe_path.filename().string(), "RTX Path Tracing is a code sample that strives to embody years of ray tracing and neural graphics research and experience. It is intended as a starting point for a path tracer integration, as a reference for various integrated SDKs, and/or for learning and experimentation.");
 
 		bool help = false;
 
 		options.add_options()
 			("s,scene", "Preferred scene to load (.scene.json)", value(scene))
-			("nonInteractive", "Indicates that pt_sdk will start in non-interactive mode, disabling popups and windows that require input", value(nonInteractive))
+			("nonInteractive", "Indicates that RTXPT will start in non-interactive mode, disabling popups and windows that require input", value(nonInteractive))
 			("noWindow", "Start PT-SDK without a window. This mode is useful when generating screenshots from command line.", value(noWindow))
 			("noStreamline", "No streamline", value(noStreamline))
 			("d,debug", "Enables the D3D12/VK debug layer and NVRHI validation layer", value(debug))
